@@ -1,5 +1,6 @@
 import { User } from "./user.model";
 import { IUser } from "./user.interface";
+import path from "path";
 
 /**
  * Create a new user
@@ -60,3 +61,18 @@ export const deleteSingleUser=async(id:string)=>{
         return deleteInfo;
       }
 }
+
+
+export const savePicture = async (file: Express.Multer.File) => {
+  if (!file) {
+    throw new Error("No file uploaded");
+  }
+
+  const filePath = path.join("uploads", file.filename);
+  return {
+    filename: file.filename,
+    path: filePath,
+    mimetype: file.mimetype,
+    size: file.size,
+  };
+};
