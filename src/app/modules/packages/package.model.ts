@@ -99,7 +99,7 @@ const SubscriptionPlanSchema = new Schema<ISubscriptionPlan>(
     },
   },
   {
-    timestamps: true, // auto adds createdAt & updatedAt
+    timestamps: true, // auto adds createdAt & updatedAt this is good
     versionKey: false,
   }
 );
