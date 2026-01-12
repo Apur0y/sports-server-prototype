@@ -10,7 +10,7 @@ interface EnvType {
 
 const loadEnvVariables=():EnvType=>{
 
-    const requiredEnvVariables:string[]=["PORT","DB_URL","NODE_ENV"];
+    const requiredEnvVariables:string[]=["DB_URL","NODE_ENV"];
 
     requiredEnvVariables.forEach(key=>{
         if(!process.env[key]){
@@ -19,7 +19,7 @@ const loadEnvVariables=():EnvType=>{
     })
 
     return {
-    PORT : process.env.PORT as string,
+    PORT : (process.env.PORT || '3000') as string,
     DB_URL: process.env.DB_URL!,
     NODE_ENV: process.env.NODE_ENV! 
 }
